@@ -1,3 +1,4 @@
+'use client';
 import {useState} from 'react'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
@@ -6,8 +7,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2%;
-    padding-bottom: 8%;
+    padding-top: 5%;
+    padding-bottom: 7%;
     @media (max-width: 1068px) {
         display: none;
     }
@@ -34,7 +35,7 @@ const TimeBox = styled.div`
     align-items: center;
     padding-left: 10%;
     padding-right: 10%;
-    width: 80%;
+    width: 100%;
     height: 2px;
     background: #004207;
 `

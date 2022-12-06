@@ -1,3 +1,5 @@
+'use client';
+
 import {useTheme} from 'styled-components';
 import { SuccessIcon } from '../icons/Common';
 import { useState } from 'react';

@@ -108,7 +108,7 @@ const ImageBox = styled.div`
 
 const AbsoluteAnim = styled.div`
   position: absolute;
-  top: 85px;
+  top: 100px;
   left: 110px;
 `
 
@@ -267,7 +267,7 @@ const LandingMain = ({ width, height }) => {
         <HeadTitle>Eyeseek Funding</HeadTitle>
         <HeadSub>Next generation of crowdfunding</HeadSub>
         <HeadDesc>by web3</HeadDesc>
-         <ImageBox><Image src={eyemain} alt='eyeseek' fill/> <AbsoluteAnim><Eyeballs/></AbsoluteAnim></ImageBox>
+         <ImageBox><Image src={eyemain} alt='eyeseek' width={200} height={150}/> <AbsoluteAnim><Eyeballs/></AbsoluteAnim></ImageBox>
       </TitleBox>
 
       <svg width={width} height={height} viewBox="0 0 2077 1250" fill="none" xmlns="http://www.w3.org/2000/svg">

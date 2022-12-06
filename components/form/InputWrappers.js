@@ -1,8 +1,9 @@
+'use client';
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
-  padding-top: 5%;
-  margin-bottom: 10%;
+  padding-top: 3%;
+  margin-bottom: 7%;
   animation: fadeIn 0.7s;
   @keyframes fadeIn {
     0% {

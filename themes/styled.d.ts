@@ -13,6 +13,7 @@ declare module 'styled-components' {
             black:  string,
             gradient:  string,
             errGradient:  string,
+            tableGradient: string,
             border:  string,
             progressBorder:  string,
             transparent:  string,
@@ -24,7 +25,8 @@ declare module 'styled-components' {
             binance:  string,
             projectCard:  string,
             icon:  string,
-            redPastel:  string
+            redPastel:  string,
+            darkRed:  string
         };
     }
 }

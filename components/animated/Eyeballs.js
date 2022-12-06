@@ -1,3 +1,5 @@
+'use client';
+
 import styled from "styled-components"
 import Script from 'next/script'
 import {motion} from 'framer-motion'

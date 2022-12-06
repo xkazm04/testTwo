@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useApp } from '../utils/appContext';
 import SectionTitle from '../../components/typography/SectionTitle';
 import InputContainer from '../../components/form/InputContainer';
@@ -10,6 +10,7 @@ import ButtonAlt from '../../components/buttons/ButtonAlt';
 import { BetweenRow } from '../../components/format/Row';
 import {story_form} from '../../data/forms/createForm'
 import { RewardDesc } from '../../components/typography/Descriptions';
+import { useDropzone } from 'react-dropzone';
 
 const FormStyle = styled.form`
   display: flex;
@@ -48,6 +49,12 @@ const FormStyle = styled.form`
 const TellStory = ({ setStep }) => {
   const { setAppState } = useApp();
   const [image, setImage] = useState(null);
+  const onDrop = useCallback(acceptedFiles => {
+    console.log('accepted')
+  }, [])
+
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -130,6 +137,14 @@ const TellStory = ({ setStep }) => {
               <span className="input-span">Upload project image</span>
             )}
           </label> */}
+            {/* <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {
+                isDragActive ?
+                  <p>Drop the files here ...</p> :
+                  <p>Drag 'n' drop some files here, or click to select files</p>
+              }
+            </div> */}
           {story_form.map((sf) => {
             const { title, name, description, text_field, p, maxLength } = sf;
             return (

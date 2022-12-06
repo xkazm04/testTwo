@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -16,6 +17,9 @@ const Container = styled.div`
   @media (min-width: 1580px) {
     font-size: 1.2em;
     min-width: 300px;
+  }
+  &:hover{
+    cursor: pointer;
   }
 `;
 

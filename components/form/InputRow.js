@@ -1,9 +1,9 @@
+'use client';
+
 import styled, {useTheme} from 'styled-components';
 import { useState } from 'react';
 import { InfoIcon } from '../icons/Common';
 import Tooltip from '../../components/Tooltip';
-
-
 
 const InputWrapper = styled.div`
   position: relative;
@@ -82,7 +82,7 @@ const InputRow = ({ id, name, min, placeholder, onChange, onBlur, tooltip, curre
 
   return (
     <InputWrapper>
-      {isTooltip && <Tooltip text={tooltip} margin={'-70px'}/>}
+      {isTooltip && <Tooltip text={tooltip} margin={'-110px'}/>}
       <DonationRow>
         {' '}
         <div>{name}</div>{' '}

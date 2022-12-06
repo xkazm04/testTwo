@@ -8,9 +8,9 @@ export const LogoComponent = () => (
   <ImageBox>
     <NavItem>
       <Link href="/">
-        <a>
-          <Image src={Logo} alt="Logo" width={'110%'} height={'50%'} />
-        </a>
+        <span>
+          <Image src={Logo} alt="Logo" width={110} height={50} />
+        </span>
       </Link>
     </NavItem>
   </ImageBox>

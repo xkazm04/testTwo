@@ -20,6 +20,7 @@ import Address from '../functional/Address';
 import { TablePagination } from './TablePagination';
 import { filterInputs } from '../../util/constants';
 import { ArrElement } from '../../types/common';
+import {useTheme} from 'styled-components'
 
 interface ITransactionTable {
   data: any;
@@ -82,6 +83,7 @@ export const FilterInput = <T,>({ column }: { column: Column<T> }) => {
 const TransactionTable = ({ data }: ITransactionTable): JSX.Element => {
   const [sorting, setSorting] = useState([]);
   const [backerFilter, setBackerFilter] = useState<boolean>(false);
+  const theme = useTheme();
 
   const columns: ColumnDef<TransactionTableProps, string>[] = [
     {
@@ -94,7 +96,7 @@ const TransactionTable = ({ data }: ITransactionTable): JSX.Element => {
         >
           Chain{' '}
           <ImageHover>
-            <FilterIcon width={13} height={13} />
+            <FilterIcon width={13} height={13} color={theme.colors.icon} />
           </ImageHover>
         </RowCenter>
       ),
@@ -118,7 +120,7 @@ const TransactionTable = ({ data }: ITransactionTable): JSX.Element => {
         >
           Backer{' '}
           <ImageHover>
-            <FilterIcon width={13} height={13} />
+            <FilterIcon width={13} height={13} color={theme.colors.icon} />
           </ImageHover>
         </RowCenter>
       ),
@@ -157,7 +159,7 @@ const TransactionTable = ({ data }: ITransactionTable): JSX.Element => {
         >
           Token{' '}
           <ImageHover>
-            <FilterIcon height={13} width={13} />
+            <FilterIcon height={13} width={13} color={theme.colors.icon} />
           </ImageHover>
         </RowCenter>
       ),

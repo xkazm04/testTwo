@@ -1,3 +1,4 @@
+'use client';
 import {useState} from 'react'
 import styled from "styled-components"
 import { WarningIcons } from "../icons/Common"
@@ -25,7 +26,7 @@ const WarningBox = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: rgba(9, 0, 0);
+  background: ${({theme})=>theme.colors.darkRed};
   border: 1px solid #500000;
   border-radius: 5px;
   letter-spacing: 0.9px;
@@ -43,7 +44,7 @@ const WarningBox = styled(motion.div)`
 `;
 
 
-const Warning = ({text  }) => {
+const Warning = () => {
     const [show, setShow] = useState(false)
     return <Container>
         <Icons           

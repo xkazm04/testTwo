@@ -1,6 +1,6 @@
+'use client';
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
 
 
 export const AnimatedModal = styled(motion.div)`
