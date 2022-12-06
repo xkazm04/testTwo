@@ -1,3 +1,5 @@
+'use client';
+
 import successAnimation from '../../data/successAnimation.json';
 import smallLoading from '../../data/smallLoading.json';
 import errorAnimation from '../../data/errorAnimation.json';

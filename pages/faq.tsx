@@ -320,7 +320,7 @@ const Faq: NextPage = () => {
       </FaqContainer>
 
       <EyeSevenBox>
-        <Image src={Eye7} alt="Eye7" width={'400%'} height={'40%'} />
+        <Image src={Eye7} alt="Eye7" width={400} height={40} />
       </EyeSevenBox>
       <Footer />
     </>

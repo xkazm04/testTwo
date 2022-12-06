@@ -1,3 +1,4 @@
+'use client';
 import styled from 'styled-components';
 import { Wrapper } from '../format/Box';
 import { Row, Col } from '../format/Row';

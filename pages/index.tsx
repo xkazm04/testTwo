@@ -43,7 +43,7 @@ const Home: NextPage = () => {
         <Features />
         <LatestProjects my={false} />
         <EyeSevenBox>
-          <Image src={Eye7} alt="Eye7" width={'350px'} height={'30px'} />
+          <Image src={Eye7} alt="Eye7" width={350} height={30} />
         </EyeSevenBox>
         <Footer />
         <Script src="https://www.googletagmanager.com/gtag/js?id=GTM-WV83C9F" strategy="afterInteractive" />

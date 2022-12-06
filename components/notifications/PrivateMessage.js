@@ -1,3 +1,4 @@
+'use client';
 import InputContainer from "../form/InputContainer"
 import styled from 'styled-components'
 import { RewardDesc } from "../typography/Descriptions"

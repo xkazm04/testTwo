@@ -1,3 +1,4 @@
+'use client';
 import { ImgSkel } from '../icons/Skeletons';
 
 const ImgSkeleton = () => {

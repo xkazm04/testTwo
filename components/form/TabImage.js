@@ -1,3 +1,4 @@
+'use client';
 import styled, {useTheme} from 'styled-components';
 import { BookmarkFilledIcon, BookmarkIcon } from '../icons/Common'
 import { StreamIcon } from '../icons/Landing'

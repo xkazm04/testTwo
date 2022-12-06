@@ -1,9 +1,9 @@
+'use client';
+
 import styled, {useTheme} from 'styled-components';
 import { useState } from 'react';
 import { InfoIcon } from '../icons/Common';
 import Tooltip from '../../components/Tooltip';
-
-
 
 const InputWrapper = styled.div`
   position: relative;

@@ -1,3 +1,4 @@
+'use client';
 import {Table, HeadRow, Header} from '../tables/TableStyles'
 import Lottie from 'react-lottie'
 import { skelAnim } from '../animated/Animations'

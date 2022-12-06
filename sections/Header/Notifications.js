@@ -209,7 +209,7 @@ const Notifications = ({ notis, address}) => {
             ))}
         {expand && (
           <ImageBox>
-            <Image src={Eye1} alt={'eyee'} width={'2000px'} height={'2000px'} />
+            <Image src={Eye1} alt={'eyee'} width={'1000px'} height={'1000px'} />
           </ImageBox>
         )}
       </NotiBox>
