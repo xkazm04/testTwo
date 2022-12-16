@@ -3,6 +3,7 @@ import {useState} from 'react'
 import InputContainer from "../../components/form/InputContainer";
 import { Row } from "../../components/format/Row";
 import { R } from '../../components/typography/ColoredTexts';
+import { stable } from '../../data/contracts/stablecoins';
 
 const RewardFormNft = ({dType}) => {
     const { setRewardState } = useReward();
@@ -27,7 +28,7 @@ const RewardFormNft = ({dType}) => {
         type={'text'}
     />
     <InputContainer
-        label={'Specific delivery'}
+        label={'Specify delivery'}
         placeholder={'Token + Autograph'}
         description={'Shortly and specifically what backer will receive'}
         onChange={(e) => setRewardState((prev) => ({ ...prev, delivery: e.target.value  }))}
@@ -67,7 +68,7 @@ const RewardFormNft = ({dType}) => {
     />
     <InputContainer
         label={'Token address'}
-        placeholder={process.env.NEXT_PUBLIC_AD_TOKEN}
+        placeholder={stable.mumbai.usdc}
         onChange={(e) => handleAddressChange(e)}
         description={<Row>Contract address of the locked token - 
                {!validAddress ? <R>Token address is not valid</R> : <G>Token address is valid</G>}

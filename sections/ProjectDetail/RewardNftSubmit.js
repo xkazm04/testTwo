@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { useContractWrite, useContractEvent } from 'wagmi';
-import donation from '../../abi/donation.json';
+import diamondAbi from '../../abi/diamondAbi.json';
 import multi from '../../abi/multi.json';
 import ApproveNftUniversal from '../../components/buttons/ApproveNftUniversal';
 import ButtonAlt from '../../components/buttons/ButtonAlt';
@@ -9,6 +9,9 @@ import ErrText from '../../components/typography/ErrText';
 import { useReward } from '../utils/rewardContext';
 import {notify} from 'reapop'
 import {useDispatch} from 'react-redux'
+import { loadingAnim } from '../../components/animated/Animations';
+import Lottie from 'react-lottie';
+
 
 const Container = styled.div`
   display: flex;
@@ -55,7 +58,7 @@ const RewardNftSubmit = ({ add, home, pid, pledge, tokenAddress, nftId, cap }) =
   const {write, error} = useContractWrite({
     mode: 'recklesslyUnprepared',
     address: add,
-    abi: donation.abi,
+    abi: diamondAbi,
     chainId: home,
     functionName: 'createNftReward',
     args: [pid, cap, tokenAddress, nftId, 1],
@@ -71,7 +74,7 @@ const RewardNftSubmit = ({ add, home, pid, pledge, tokenAddress, nftId, cap }) =
             onClick={() => {
               handleSubmit();
             }}
-          /> : <ButtonAlt text={<Row><div>Waiting for blockchain...</div><div><Lottie height={100} width={100} options={loadingAnim} /></div></Row>} disabled={true} />}
+          /> : <ButtonAlt text={<div>Waiting for blockchain... <Lottie height={50} width={50} options={loadingAnim} /></div>} disabled={true} />}
       </ButtonBox>
       {error && <ErrText text={'Missing/Incorrect parameter'} />}
     </Container>

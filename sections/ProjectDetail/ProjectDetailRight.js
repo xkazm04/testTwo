@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import donation from '../../abi/donation.json';
+import {useState, useEffect} from 'react';
+import diamondAbi from '../../abi/diamondAbi.json';
 import { useContractRead } from 'wagmi';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -9,11 +10,11 @@ import Bookmark from '../../components/functional/Bookmark';
 import Stream from './Stream';
 import usdc from '../../public/icons/usdc.png';
 import usdt from '../../public/icons/usdt.png';
-import dai from '../../public/icons/dai.png';
 import { BetweenRow, Row } from '../../components/format/Row';
 import { G } from '../../components/typography/ColoredTexts';
 import StatRow from '../../components/StatRow';
 import { RightPart, SmallBal } from '../../components/cards/CardStyles';
+import { diamond } from '../../data/contracts/core';
 
 const ButtonBox = styled.div`
   margin-top: 4%;
@@ -26,8 +27,15 @@ const AbsoluteShareIt = styled.div`
   top: -20px;
 `
 
-const ProjectDetailRight = ({ pid, objectId, bookmarks, pType, owner, chainId, add }) => {
+const ProjectDetailRight = ({ pid, objectId, bookmarks, pType, owner, chainId }) => {
   const router = useRouter();
+  const [add, setAdd] = useState(diamond.mumbai);
+
+  useEffect(() => {
+    if (process.env.PROD !== 'something'){
+      setAdd(diamond.mumbai)
+    }
+  },[])
 
   let bal = 'n/a';
   let microInvolved = 'n/a';
@@ -36,12 +44,11 @@ const ProjectDetailRight = ({ pid, objectId, bookmarks, pType, owner, chainId, a
   let backing = 'n/a';
   let usdcBalance = 'n/a';
   let usdtBalance = 'n/a';
-  let daiBalance = 'n/a';
 
   const funds = useContractRead({
     address: add,
-    abi: donation.abi,
-    functionName: 'funds',
+    abi: diamondAbi,
+    functionName: 'getFundDetail',
     chainId: chainId,
     args: [pid],
     watch: false,
@@ -71,26 +78,25 @@ const ProjectDetailRight = ({ pid, objectId, bookmarks, pType, owner, chainId, a
     // Get fund usdt balance
     usdtBalance = Number(funds.data.usdtBalance.toString()) / 1000000;
 
-    // Get fund dai balance
-    daiBalance = Number(funds.data.daiBalance.toString()) / 1000000;
   }
 
-  const backers = useContractRead({
-    address: add,
-    abi: donation.abi,
-    functionName: 'getBackers',
-    chainId: chainId,
-    args: [pid],
-    watch: false,
-  });
+  // TBD to integrate new function with all addresses
+  // const backers = useContractRead({
+  //   address: add,
+  //   abi: fundFacet.abi,
+  //   functionName: 'getBackers',
+  //   chainId: chainId,
+  //   args: [pid],
+  //   watch: false,
+  // });
 
-  if (backers.data) {
-    backing = backers.data.toString();
-  }
+  // if (backers.data) {
+  //   backing = backers.data.toString();
+  // }
 
   const micros = useContractRead({
     address: add,
-    abi: donation.abi,
+    abi: diamondAbi,
     functionName: 'getConnectedMicroFunds',
     chainId: chainId,
     args: [pid],
@@ -108,7 +114,6 @@ const ProjectDetailRight = ({ pid, objectId, bookmarks, pType, owner, chainId, a
         <SmallBal>
           <div>{usdcBalance} <Image src={usdc} alt="usdc" width={20} height={20} /></div>
           <div>{usdtBalance} <Image src={usdt} alt="usdt" width={20} height={20} /></div>
-          <div>{daiBalance} <Image src={dai} alt="dai" width={20} height={20} /> </div>
         </SmallBal>
       </Row>
     );

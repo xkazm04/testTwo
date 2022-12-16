@@ -1,10 +1,10 @@
-import StreamTable from '../components/tables/StreamTable';
+import StreamTable from '../sections/Tables/StreamTable';
 import styled from 'styled-components';
 import SectionTitle from '../components/typography/SectionTitle';
 import Tab from '../components/form/Tab';
 import { useState } from 'react';
-import Transactions from '../components/tables/Transactions';
-import ProjectTable from '../components/tables/ProjectTable';
+import Transactions from '../sections/Tables/Transactions';
+import ProjectTable from '../sections/Tables/ProjectTable';
 import RewardsAll from '../components/tables/RewardsAll';
 
 const Container = styled.div`
@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const TabWrapper = styled.div`
   margin-bottom: 5%;
+  padding-left: 2%;
 `
 
 // Create couple of common tables

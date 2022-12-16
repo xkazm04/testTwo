@@ -7,14 +7,14 @@ import { ButtonRow, Buttons, NotiBox, NotiTabWrapper } from "../../components/no
 import { Col } from "../../components/format/Row";
 import Tab from "../../components/form/Tab";
 import { ExpandIcon, ShrinkIcon } from "../../components/icons/Notifications";
-import PrivateMessage from "../../components/notifications/PrivateMessage";
+import PrivateMessage from "./PrivateMessage";
 
 
 const Settings = () => {
     const theme = useTheme();
     const [active, setActive] = useState('Pref');
     const [expand, setExpand] = useState(false);
-    return <AnimatedModal expand={expand}>
+    return <AnimatedModal expand={expand ? true : undefined}>
         <ButtonRow>
             <Buttons>
             <Col>

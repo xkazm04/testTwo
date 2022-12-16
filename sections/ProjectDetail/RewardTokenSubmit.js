@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { useContractWrite, useContractEvent } from 'wagmi';
-import donation from '../../abi/donation.json';
+import diamondAbi from '../../abi/diamondAbi.json';
 import token from '../../abi/token.json';
 import ApproveUniversal from '../../components/buttons/ApproveUniversal';
 import ButtonAlt from '../../components/buttons/ButtonAlt';
@@ -9,6 +9,9 @@ import { ColRight } from '../../components/format/Row';
 import { useReward } from '../utils/rewardContext';
 import {notify} from 'reapop'
 import {useDispatch} from 'react-redux'
+import { loadingAnim } from '../../components/animated/Animations';
+import Lottie from 'react-lottie';
+
 
 const ButtonBox = styled.div`
   display: flex;
@@ -51,7 +54,7 @@ const RewardTokenSubmit = ({ add, home, pid, tokenAddress, cap, tokenAmount }) =
   const {write} = useContractWrite({
     mode: 'recklesslyUnprepared',
     address: add,
-    abi: donation.abi,
+    abi: diamondAbi,
     chainId: home,
     functionName: 'createReward',
     args: [pid, cap, total, tokenAddress, 1],
@@ -68,7 +71,7 @@ const RewardTokenSubmit = ({ add, home, pid, tokenAddress, cap, tokenAmount }) =
             onClick={() => {
               handleSubmit();
             }}
-            /> : <ButtonAlt text={<Row><div>Waiting for blockchain...</div><div><Lottie height={100} width={100} options={loadingAnim} /></div></Row>} disabled={true} />}
+            /> : <ButtonAlt text={<div>Waiting for blockchain... <Lottie height={50} width={50} options={loadingAnim} /></div>} disabled={true} />}
       </ButtonBox>
     </ColRight>
   );
